@@ -1,0 +1,46 @@
+<nav id = "main-page_navbar" class="navbar navbar-default navbar-light bg-white" >
+  
+  <a id="brand" class="navbar-brand py-3" href="/">GaCheeTa</a>
+  
+  <%= current_user.email %>
+  <%= current_user.name %>
+  <%= current_user.number%>
+  <%= current_user.degree%>
+  
+  <ul class="nav nav-pills navbar-right">
+    <li role="presentation" class="active" id="LOGOUT"><a href="/users/sign_out">하차하기</a></li>
+  </ul>
+  
+</nav>
+
+<center>
+  <p style="font-size:10rem">menu</p>
+</center>
+
+<div>
+  <div>
+    <div class="col-xs-12 col-sm-12 col-md-4" >
+      <a href ="/taxi" class ="thumbnail" id="taxi" >
+          택시
+      </a>
+    </div>
+  </div>
+  
+  <div>
+    <div class="col-xs-12 col-sm-12 col-md-4 ">
+      <a href ="/car" class ="thumbnail menu" id ="taxi">
+          
+          카풀
+      </a>
+    </div>
+  </div>
+  
+  <div>
+    <div class="col-xs-12 col-sm-12 col-md-4 ">
+      <a href ="/setting" class ="thumbnail menu" id ="taxi">
+          
+          설정
+      </a>
+    </div>
+  </div>
+</div>

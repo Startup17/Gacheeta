@@ -1,0 +1,20 @@
+<nav id = "main-page_navbar" class="navbar navbar-default navbar-light bg-white" >
+  
+  <a class="navbar-brand py-3" href="/">GaCheeTa</a>
+  <%= current_user.email %>
+  <%= current_user.name %>
+  <%= current_user.number%>
+  <%= current_user.degree%>
+  <ul class="nav nav-pills navbar-right">
+    <li role="presentation" class="active" id="LOGOUT"><a href="/users/sign_out">하차하기</a></li>
+  </ul>
+  
+</nav>
+
+
+
+카풀 
+<a href="/users/sign_out">그만타기</a>
+
+<a href = "/c_driver">운전자</a>
+<a href = "/c_boarder">탑승자</a>

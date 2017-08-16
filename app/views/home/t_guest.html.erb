@@ -1,0 +1,199 @@
+<nav id = "main-page_navbar" class="navbar navbar-default navbar-light bg-white" >
+  
+  <a id="brand" class="navbar-brand py-3" href="/">GaCheeTa</a>
+  
+  <%= current_user.email %>
+  <%= current_user.name %>
+  <%= current_user.number%>
+  <%= current_user.degree%>
+  
+  <ul class="nav nav-pills navbar-right">
+    <li role="presentation" class="active" id="LOGOUT"><a href="/users/sign_out">하차하기</a></li>
+  </ul>
+  
+</nav>
+
+
+<div class="container">
+ <p style="font-size:6rem">같이 타는 사람 설정</p>
+  
+  <form name="select_machine" class="form-inline" action="/taxi/t_host/t_room" method="post">
+  <div class="container">
+    <p style="font-size:6rem">출발 설정</p>
+       <!-- 1.GPS사용 2.사용자가 설정 후 근처 방 정보 띄워줌 3.사용자가 나중에 직접 검색 -->
+      
+      <div class="col-md-6">
+        
+        <select id="select" class="form-control" name="gogogogo">
+          <option>정문</option>
+          <option>후문</option>
+          <option>북문</option>
+          <option>상대</option>
+          
+        </select>
+        <%#= @start %>
+       
+      </div>
+        
+    </div>
+  </div>
+
+  <div class="container">
+    <p style="font-size:6rem">도착 설정</p>
+    <div class="container">
+      
+      <button style="font-size:5rem">집주소</button>
+    </div>  
+      <br>
+      
+    <!--상위 셀렉트박스-->
+    <div class ="container">
+      <p style="font-size:6rem">도착지 선택</p>
+    
+        <select class ="form-control" id="select" name="gu" onChange="showSub(this.options[this.selectedIndex].value);"> 
+          <option value="0">구 설정</option>
+          <option value="1">북구</option> 
+          <option value="2">동구</option> 
+          <option value="3">서구</option> 
+          <option value="4">남구</option>
+          <option value="5">광산구</option> 
+        </select>
+      
+    <br>
+    
+    <!--여기부턴 하위셀렉트박스-->
+
+    <!--북구-->
+        <select class ="form-control" id="select" name="SUB1" style="display: none;">
+          <option value=" ">동 설정</option>
+          <option value="1">중흥동</option>
+          <option value="2">중앙동</option>
+          <option value="3">임동</option>
+          <option value="4">신안동</option>
+          <option value="5">용봉동</option>
+          <option value="6">운암동</option>
+          <option value="7">동림동</option>
+          <option value="8">우산동</option>
+          <option value="9">풍향동</option>
+          <option value="10">문화동</option>
+          <option value="11">문흥동</option>
+          <option value="12">두암동</option>
+          <option value="13">삼각동</option>
+          <option value="14">일곡동</option>
+          <option value="15">매곡동</option>
+          <option value="16">오치동</option>
+          <option value="17">석곡동</option>
+          <option value="18">건국동</option>
+          <option value="19">양산동</option>
+          <!--var a = -->
+        </select>
+        
+        <!--동구-->
+        <select class ="form-control" id="select" name="SUB2" style="display: none;">
+          <option value="">동 설정</option>
+          <option value="1">충장동</option>
+          <option value="2">동명동</option>
+          <option value="3">계림동</option>
+          <option value="4">산수동</option>
+          <option value="5">지산동</option>
+          <option value="6">서남동</option>
+          <option value="7">학동</option>
+          <option value="8">학운동</option>
+          <option value="9">지원동</option>
+    
+        </select>
+        
+        <!--서구-->
+        <select class ="form-control" id="select" name="SUB3" style="display: none;">
+          <option value="">동 설정</option>
+          <option value="1">양동</option>
+          <option value="2">농성동</option>
+          <option value="3">치평동</option>
+          <option value="4">화정동</option>
+          <option value="5">금호동</option>
+          <option value="6">양3동</option>
+          <option value="7">광천동</option>
+          <option value="8">상무동</option>
+          <option value="9">서창동</option>
+          <option value="10">풍암동</option>
+          <option value="11">유덕동</option>
+          <option value="12">동천동</option>
+    
+        </select>
+        
+        <!--남구-->
+        <select class ="form-control" id="select" name="SUB4" style="display: none;">
+          <option value="">동 설정</option>
+          <option value="1">양림동</option>
+          <option value="2">방림동</option>
+          <option value="3">봉선동</option>
+          <option value="4">사직동</option>
+          <option value="5">월산동</option>
+          <option value="6">월산4동</option>
+          <option value="7">월산5동</option>
+          <option value="8">백운1동</option>
+          <option value="9">백운2동</option>
+          <option value="10">주월동</option>
+          <option value="11">효덕동</option>
+          <option value="12">송암동</option>
+          <option value="13">대촌동</option>
+    
+        </select>
+        
+        <!--광산구-->
+        <select class ="form-control" id="select" name="SUB5" style="display: none;">
+          <option value="">동 설정</option>
+          <option value="1">송정동</option>
+          <option value="2">도산동</option>
+          <option value="3">신흥동</option>
+          <option value="4">어룡동</option>
+          <option value="5">우산동</option>
+          <option value="6">월곡동</option>
+          <option value="7">운남동</option>
+          <option value="8">하남동</option>
+          <option value="9">첨단동</option>
+          <option value="10">비아동</option>
+          <option value="11">수완동</option>
+          <option value="12">신가동</option>
+          <option value="13">신창동</option>
+          <option value="14">평동</option>
+          <option value="15">임곡동</option>
+          <option value="16">동곡동</option>
+          <option value="17">삼도동</option>
+          <option value="18">본량동</option>
+        </select>
+        
+        <select class ="form-control" id="select" name="SUB6" style="display: none;">
+          <option value=""></option>
+        </select>
+      </div> 
+   
+    
+    <br>
+    
+    <div class="container col-xs-12 col-sm-12 col-md-6">
+      
+      <input type="text" class="form-control" placeholder="상세주소를 써주세요" id="select">
+      
+    </div>
+    </div> 
+  </form>
+</div>
+
+</div>
+
+<center>
+  <a style="font-size : 5rem" href ="/taxi/t_guest/t_match/t_list"> 시작 </a> 
+</center>
+<!--출발지 종착지 설정<br>
+
+1.출발지 설정 => 자신이 타고자 하는 위치 설정=> 주위에 개설된 방 중 선택<br>
+
+동승자의 출발지 설정은 이미 출발지가 설정된 방의 출발지<br>
+
+2.종착지 설정(집주소 미리 설정 후 사용가능)<br>
+
+이동경로는 방만드는 사람의 이동경로 크게 반영<br>
+
+구체적인 이동경로나 금액의 경우 채팅이나 기타 연락을 통해 조율<br> -->
+

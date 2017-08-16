@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start: MyString
+  gu: MyString
+  dong: MyString
+  juso: MyString
+  name: MyString
+  number: 1
+  degree: MyString
+
+two:
+  start: MyString
+  gu: MyString
+  dong: MyString
+  juso: MyString
+  name: MyString
+  number: 1
+  degree: MyString

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @list.start %>
+</p>
+
+<p>
+  <strong>Gu:</strong>
+  <%= @list.gu %>
+</p>
+
+<p>
+  <strong>Dong:</strong>
+  <%= @list.dong %>
+</p>
+
+<p>
+  <strong>Juso:</strong>
+  <%= @list.juso %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @list.name %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @list.number %>
+</p>
+
+<p>
+  <strong>Degree:</strong>
+  <%= @list.degree %>
+</p>
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>

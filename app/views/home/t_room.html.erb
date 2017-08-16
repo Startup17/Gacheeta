@@ -1,0 +1,56 @@
+<nav id = "main-page_navbar" class="navbar navbar-default navbar-light bg-white" >
+  
+  <a id="brand" class="navbar-brand py-3" href="/">GaCheeTa</a>
+   
+   <%= current_user.email %>
+   <%= current_user.name %>
+   <%= current_user.number%>
+   <%= current_user.degree%>
+  <ul class="nav nav-pills navbar-right">
+    <li role="presentation" class="active" id="LOGOUT"><a href="/users/sign_out">하차하기</a></li>
+  </ul>
+  
+</nav>
+
+<!-- 방장이보는 채팅방 만들어 지는 곳 -->
+
+<section>
+  <div>
+    
+    <div class="col-xs-12 clo-md-8" style="background-color:blue;"> <!-- 인원 정보 -->
+      <div class="row-xs-3"style="background-color:red;"> <!-- 방장정보 -->
+        방장
+        
+      </div>
+      <div class="row-xs-3" style="background-color:yellow;"> <!-- 게스트정보 -->
+      게스트1
+        
+      </div>
+      <div class="row-xs-3" style="background-color:green;"> 
+      게스트2
+        
+      </div>
+      <div class="row-xs-3" style="background-color:gray;"> 
+      게스트3
+        
+      </div>
+      <div class="row-xs-3"> 
+      <br></br>
+      </div>
+    </div>
+    
+  <br>  
+  <!-- 오른쪽 채팅 -->  
+  <div class="col-xs-12 clo-md-4"  style="background-color:pink;">
+    
+    
+        
+  채팅
+  </div> 
+      
+      
+    </div>
+  </div>
+</section>
+  
+

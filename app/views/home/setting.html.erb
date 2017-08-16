@@ -1,0 +1,39 @@
+<nav id = "main-page_navbar" class="navbar navbar-default navbar-light bg-white" >
+  
+  <a class="navbar-brand py-3" href="/">GaCheeTa</a>
+  <%= current_user.email %>
+  <%= current_user.name %>
+  <%= current_user.number%>
+  <%= current_user.degree%>
+  <ul class="nav nav-pills navbar-right">
+    <li role="presentation" class="active" id="LOGOUT"><a href="/users/sign_out">그만타기</a></li>
+  </ul>
+  
+</nav>
+
+
+
+<h1>설정</h1>
+
+<div>
+  <p>사용자 정보 설정</p>
+  <div>
+    아이디 설정
+    
+  </div>
+  <div>
+    비밀번호 설정
+  </div>
+  <div>
+    집주소 설정
+  </div>
+</div>
+
+정보 설정<br>
+
+개인정보 설정<br>=>아이디 비번
+
+집주소 설정 후 종착지로 바로 이용가능<br>
+
+자주 사용하는 이동경로 설정가능<br>
+

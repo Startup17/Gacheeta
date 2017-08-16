@@ -1,0 +1,25 @@
+<!-- 동승자가 들어갈 방들
+
+게시판
+
+관련성 있는 정보들부터 순차적
+
+1. 지도에 주변에 생긴 방들 출발지 위치 표시 후 도착지 표시
+
+2. 사이에 타는 사람들 표시 -->
+
+<nav id = "main-page_navbar" class="navbar navbar-default navbar-light bg-white" >
+  
+  <a id="brand" class="navbar-brand py-3" href="/">GaCheeTa</a>
+  <%= current_user.email %>
+  <%= current_user.name %>
+  <%= current_user.number%>
+  <%= current_user.degree%>
+  <ul class="nav nav-pills navbar-right">
+    <li role="presentation" class="active" id="LOGOUT"><a href="/users/sign_out">그만타기</a></li>
+  </ul>
+  
+</nav>
+
+<!-- 동승자가 보는 채팅방들의 게시판 -->
+게시판

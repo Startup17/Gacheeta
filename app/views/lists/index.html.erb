@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>Gu</th>
+      <th>Dong</th>
+      <th>Juso</th>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Degree</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lists.each do |list| %>
+      <tr>
+        <td><%= list.start %></td>
+        <td><%= list.gu %></td>
+        <td><%= list.dong %></td>
+        <td><%= list.juso %></td>
+        <td><%= list.name %></td>
+        <td><%= list.number %></td>
+        <td><%= list.degree %></td>
+        <td><%= link_to 'Show', list %></td>
+        <td><%= link_to 'Edit', edit_list_path(list) %></td>
+        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New List', new_list_path %>

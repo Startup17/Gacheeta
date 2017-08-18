@@ -1,39 +1,99 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'GaCheeTa', root_path, class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!--<li><a href="#">설명</a></li>-->
+        <!--<li><a href="#">공지사항</a></li>-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to '메뉴', menu_path %></li>
+        <li><%= link_to '설정', setting_path %></li>
+        <li><%= link_to '내리기', destroy_user_session_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Start:</strong>
-  <%= @list.start %>
-</p>
 
-<p>
-  <strong>Gu:</strong>
-  <%= @list.gu %>
-</p>
 
-<p>
-  <strong>Dong:</strong>
-  <%= @list.dong %>
-</p>
 
-<p>
-  <strong>Juso:</strong>
-  <%= @list.juso %>
-</p>
+<section>
+<div class="container">
+  <h2>출발지</h2>  
+  <p>
+    <strong></strong>
+    <%= @list.start %>
+  </p>
+</div>  
 
-<p>
-  <strong>Name:</strong>
-  <%= @list.name %>
-</p>
+<div class="container">
+  <h2>도착지 정보</h2>
+  <p>
+    <strong>구:</strong>
+    <%= @list.gu %>
+  </p>
 
-<p>
-  <strong>Number:</strong>
-  <%= @list.number %>
-</p>
+  <p>
+    <strong>동:</strong>
+    <%= @list.dong %>
+  </p>
+  
+  <p>
+    <strong>상세주소:</strong>
+    <%= @list.juso %>
+  </p>
+</div>
 
-<p>
-  <strong>Degree:</strong>
-  <%= @list.degree %>
-</p>
+<div class="container">
+  <h2>방장 정보</h2>
+  <p>
+    <strong>이름:</strong>
+    <%= @list.name %>
+  </p>
+  
+  <p>
+    <strong>학번:</strong>
+    <%= @list.number %>
+  </p>
+  
+  <p>
+    <strong>학과:</strong>
+    <%= @list.degree %>
+  </p>
+</div>
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+</section>
+
+<br>
+<br>
+<br>
+
+<div class = "container">
+<!--탑승자-->
+
+<%= link_to '다른방 보러가기', lists_path %> <br>
+
+<!--방장관련-->
+<%#= link_to '방 설정 변경', list_path, method: :update, data: { confirm: 'ㄹㅇ?' } %> <br>
+<%= link_to '방장이 나가기', list_path, method: :delete, data: { confirm: '방장이 방을 나가면, 방이 자동으로 사라집니다. 나가시겠습니까?' } %>
+
+<center>
+
+  
+   <%= link_to '출발하기', list_path, method: :delete, data: { confirm: '출발하면 방이 자동으로 사라집니다. 출발하시겠습니까?' }, class: 'thumbnail' %>
+  
+
+</center>
+</div>

@@ -1,205 +1,229 @@
-<!--방장
-
-
-출발지 종착지 설정<br>
-
-1.출발지 설정에 GPS이용 자신의 위치 찍기<br>
-
-2.종착지는 따로 설정정(집주소 미리 설정 후 사용가능)<br>
-
-이동경로는 방만드는 사람의 이동경로 크게 반영<br>
-
-구체적인 이동경로나 금액의 경우 채팅이나 기타 연락을 통해 조율<br> -->
-
-<nav id = "main-page_navbar" class="navbar navbar-default navbar-light bg-white" >
-  
-  <a id="brand" class="navbar-brand py-3" href="/">GaCheeTa</a>
-  <%= current_user.email %>
-  <%= current_user.name %>
-  <%= current_user.number%>
-  <%= current_user.degree%>
-  <ul class="nav nav-pills navbar-right">
-    <li role="presentation" class="active" id="LOGOUT"><a href="/users/sign_out">하차하기</a></li>
-  </ul>
-  
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'GaCheeTa', root_path, class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!--<li><a href="#">설명</a></li>-->
+        <!--<li><a href="#">공지사항</a></li>-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to '메뉴', menu_path %></li>
+        <li><%= link_to '설정', setting_path %></li>
+        <li><%= link_to '내리기', destroy_user_session_path %></li>
+      </ul>
+    </div>
+  </div>
 </nav>
-
-
 
 <div class="container">
   
-    <p style="font-size:6rem">탈것 설정</p>
-  
-  
-  <form name="select_machine" class="form-inline" action="/taxi/t_host/t_room" method="post" >
-   <%#= form_for @list, url: {action: "lists"}, html: {class: "form-inline"} do |f| %> 
-  
-  
-    <div class="container">
-      <p style="font-size:6rem">출발지 선택</p>
+    <p id="h-word">방 설정</p>
+
+   
+  <%= form_for List.new, :html => {:class => 'select_machine col-xs-12 col-sm-12 col-md-8 col-lg-8', :name => 'select_machine' } do |u| %>
+    
+    <%= u.text_field :dong, value: "",type: 'hidden'%>
+
+    <%= u.text_field :name, value: current_user.name, type: 'hidden' %>
+    <%= u.text_field :number, value: current_user.number, type: 'hidden' %>
+    <%= u.text_field :degree, value: current_user.degree, type: 'hidden' %>
+    
+ 
+
+      <p id="h-word">출발지 선택</p>
       <br>
      
-    <%= select_tag "access", "<option>정문</option><option>후문</option><option>북문</option><option>상대</option>".html_safe, class: 'form_control', id: 'select' %>
-    <%end%>
+    <%= u.select 'start', 
+    "<option value=정문>정문</option>
+    <option value=후문>후문</option>
+    <option value=북문>북문</option>
+    <option value=상대>상대</option>".html_safe, {}, class: 'form-control col-xs-12 col-sm-12 col-md-8 col-lg-8',include_blank: false %> 
      
-      
-      <!--<select class="form-control" id="select" name="">-->
-      <!--  <option>정문</option>-->
-      <!--  <option>후문</option>-->
-      <!--  <option>북문</option>-->
-      <!--  <option>상대</option>-->
-        
-      <!--</select>-->
-      
- 
-    
+
     <br><br><br>
  
   <!--상위 셀렉트박스-->
-    <div class ="container">
-      <p style="font-size:6rem">도착지 선택</p>
+
+      <p id="h-word">도착지 선택</p>
     
-        <select class ="form-control" id="select" name="gu" onChange="showSub(this.options[this.selectedIndex].value);"> 
-          <option value="0">구 설정</option>
-          <option value="1">북구</option> 
-          <option value="2">동구</option> 
-          <option value="3">서구</option> 
-          <option value="4">남구</option>
-          <option value="5">광산구</option> 
-        </select>
-      
+    
+
+    
+    <%= u.select 'gu', 
+    "<option value=구 설정되지 않음>구 설정</option>
+    <option value='북구'>북구</option>
+    <option value='동구'>동구</option>
+    <option value='서구'>서구</option>
+    <option value='남구'>남구</option>
+    <option value='광산구'>광산구</option>".html_safe,
+    {}, onchange: 'nanana(this.value);', class: 'form-control col-xs-12 col-sm-12 col-md-8 col-lg-8' %>
+    
+  
     <br>
     
     <!--여기부턴 하위셀렉트박스-->
 
     <!--북구-->
-        <select class ="form-control" id="select" name="SUB1" style="display: none;">
-          <option value=" ">동 설정</option>
-          <option value="1">중흥동</option>
-          <option value="2">중앙동</option>
-          <option value="3">임동</option>
-          <option value="4">신안동</option>
-          <option value="5">용봉동</option>
-          <option value="6">운암동</option>
-          <option value="7">동림동</option>
-          <option value="8">우산동</option>
-          <option value="9">풍향동</option>
-          <option value="10">문화동</option>
-          <option value="11">문흥동</option>
-          <option value="12">두암동</option>
-          <option value="13">삼각동</option>
-          <option value="14">일곡동</option>
-          <option value="15">매곡동</option>
-          <option value="16">오치동</option>
-          <option value="17">석곡동</option>
-          <option value="18">건국동</option>
-          <option value="19">양산동</option>
-          <!--var a = -->
-        </select>
-        
-        <!--동구-->
-        <select class ="form-control" id="select" name="SUB2" style="display: none;">
-          <option value="">동 설정</option>
-          <option value="1">충장동</option>
-          <option value="2">동명동</option>
-          <option value="3">계림동</option>
-          <option value="4">산수동</option>
-          <option value="5">지산동</option>
-          <option value="6">서남동</option>
-          <option value="7">학동</option>
-          <option value="8">학운동</option>
-          <option value="9">지원동</option>
     
-        </select>
+  
+        <%= select_tag "select1",
+        "<option value=0>동 설정</option>
+        <option value=중흥1동>중흥1동</option>
+        <option value=중흥2동>중흥2동</option>
+        <option value=중흥3동>중흥3동</option>
+        <option value=중앙동>중앙동</option>
+        <option value=임동>임동</option>
+        <option value=신안동>신안동</option>
+        <option value=용봉동>용봉동</option>
+        <option value=운암1동>운암1동</option>
+        <option value=운암2동>운암2동</option>
+        <option value=운암3동>운암3동</option>
+        <option value=동림동>동림동</option>
+        <option value=우산동>우산동</option>
+        <option value=풍향동>풍향동</option>
+        <option value=문화동>문화동</option>
+        <option value=문흥1동>문흥1동</option>
+        <option value=문흥2동>문흥2동</option>
+        <option value=두암1동>두암1동</option>
+        <option value=두암2동>두암2동</option>
+        <option value=두암3동>두암3동</option>
+        <option value=삼각동>삼각동</option>
+        <option value=일곡동>일곡동</option>
+        <option value=매곡동>매곡동</option>
+        <option value=오치1동>오치1동</option>
+        <option value=오치2동>오치2동</option>
+        <option value=석곡동>석곡동</option>
+        <option value=건국동>건국동</option>
+        <option value=양산동>양산동</option>".html_safe,
+        class: 'form-control col-xs-12 col-sm-12 col-md-8 col-lg-8', name: 'SUB1', style: 'display: none;', onchange: 'select1_change();' %>
+ 
+      
+        
+    <!--동구-->
+    
+        <%= select_tag "select2", 
+        "<option value=0>동 설정</option>
+        <option value=충장동>충장동</option>
+        <option value=동명동>동명동</option>
+        <option value=계림1동>계림1동</option>
+        <option value=계림2동>계림2동</option>
+        <option value=산수1동>산수1동</option>
+        <option value=산수2동>산수2동</option>
+        <option value=시산1동>지산1동</option>
+        <option value=시산2동>지산2동</option>
+        <option value=서남동>서남동</option>
+        <option value=학동>학동</option>
+        <option value=학운동>학운동</option>
+        <option value=지원1동>지원1동</option>
+        <option value=지원2동>지원2동</option>".html_safe,
+        class: 'form-control col-xs-12 col-sm-12 col-md-8 col-lg-8', name: 'SUB2', style: 'display: none;', onchange: 'select2_change();'%>
+
+
+
+       
+    
+      
         
         <!--서구-->
-        <select class ="form-control" id="select" name="SUB3" style="display: none;">
-          <option value="">동 설정</option>
-          <option value="1">양동</option>
-          <option value="2">농성동</option>
-          <option value="3">치평동</option>
-          <option value="4">화정동</option>
-          <option value="5">금호동</option>
-          <option value="6">양3동</option>
-          <option value="7">광천동</option>
-          <option value="8">상무동</option>
-          <option value="9">서창동</option>
-          <option value="10">풍암동</option>
-          <option value="11">유덕동</option>
-          <option value="12">동천동</option>
-    
-        </select>
+   
+   
+
+        <%= select_tag "select3", 
+        "<option value=0>동 설정</option>
+        <option value=양동>양동</option>
+        <option value=양3동>양3동</option>
+        <option value=농성1동>농성1동</option>
+        <option value=농성2동>농성2동</option>
+        <option value=치평동>치평동</option>
+        <option value=화정1동>화정1동</option>
+        <option value=화정2동>화정2동</option>
+        <option value=화정3동>화정3동</option>
+        <option value=화정4동>화정4동</option>
+        <option value=금호1동>금호1동</option>
+        <option value=금호2동>금호2동</option>
+        <option value=광천동>광천동</option>
+        <option value=상무1동>상무1동</option>
+        <option value=상무2동>상무2동</option>
+        <option value=서창동>서창동</option>
+        <option value=풍암동>풍암동</option>
+        <option value=유덕동>유덕동</option>
+        <option value=동천동>동천동</option>".html_safe,
+        class: 'form-control col-xs-12 col-sm-12 col-md-8 col-lg-8', name: 'SUB3', style: 'display: none;', onchange: 'select3_change();'%>
+       
+       
+       
         
         <!--남구-->
-        <select class ="form-control" id="select" name="SUB4" style="display: none;">
-          <option value="">동 설정</option>
-          <option value="1">양림동</option>
-          <option value="2">방림동</option>
-          <option value="3">봉선동</option>
-          <option value="4">사직동</option>
-          <option value="5">월산동</option>
-          <option value="6">월산4동</option>
-          <option value="7">월산5동</option>
-          <option value="8">백운1동</option>
-          <option value="9">백운2동</option>
-          <option value="10">주월동</option>
-          <option value="11">효덕동</option>
-          <option value="12">송암동</option>
-          <option value="13">대촌동</option>
+   
+  
+ 
+        <%= select_tag "select4", 
+        "<option value=0>동 설정</option>
+        <option value=양림동>양림동</option>
+        <option value=방림1동>방림1동</option>
+        <option value=방림2동>방림2동</option>
+        <option value=봉선1동>봉선1동</option>
+        <option value=봉선2동>봉선2동</option>
+        <option value=사직동>사직동</option>
+        <option value=월산동>월산동</option>
+        <option value=월산4동>월산4동</option>
+        <option value=월산5동>월산5동</option>
+        <option value=백운1동>백운1동</option>
+        <option value=백운2동>백운2동</option>
+        <option value=주월1동>주월1동</option>
+        <option value=주월2동>주월2동</option>
+        <option value=효덕동>효덕동</option>
+        <option value=송암동>송암동</option>
+        <option value=대촌동>대촌동</option> ".html_safe,
+        class: 'form-control col-xs-12 col-sm-12 col-md-8 col-lg-8', name: 'SUB4', style: 'display: none;', onchange: 'select4_change();'%>
+              
+         <!--광산구-->
+   
     
-        </select>
+  
         
-        <!--광산구-->
-        <select class ="form-control" id="select" name="SUB5" style="display: none;">
-          <option value="">동 설정</option>
-          <option value="1">송정동</option>
-          <option value="2">도산동</option>
-          <option value="3">신흥동</option>
-          <option value="4">어룡동</option>
-          <option value="5">우산동</option>
-          <option value="6">월곡동</option>
-          <option value="7">운남동</option>
-          <option value="8">하남동</option>
-          <option value="9">첨단동</option>
-          <option value="10">비아동</option>
-          <option value="11">수완동</option>
-          <option value="12">신가동</option>
-          <option value="13">신창동</option>
-          <option value="14">평동</option>
-          <option value="15">임곡동</option>
-          <option value="16">동곡동</option>
-          <option value="17">삼도동</option>
-          <option value="18">본량동</option>
-        </select>
-        
-        <select class ="form-control" id="select" name="SUB6" style="display: none;">
-          <option value=""></option>
-        </select>
-      </div>
-    
-    
+        <%= select_tag "select5", "
+        <option value=0>동 설정</option>
+        <option value=송정1동>송정1동</option>
+        <option value=송정2동>송정2동</option>
+        <option value=도산동>도산동</option>
+        <option value=신흥동>신흥동</option>
+        <option value=어룡동>어룡동</option>
+        <option value=우산동>우산동</option>
+        <option value=월곡1동>월곡1동</option>
+        <option value=월곡2동>월곡2동</option>
+        <option value=운남동>운남동</option>
+        <option value=하남동>하남동</option>
+        <option value=첨단1동>첨단1동</option>
+        <option value=첨단동>첨단동</option>
+        <option value=비아동>비아동</option>
+        <option value=수완동>수완동</option>
+        <option value=신가동>신가동</option>
+        <option value=신창동>신창동</option>
+        <option value=평동>평동</option>
+        <option value=임곡동>임곡동</option>
+        <option value=동곡동>동곡동</option>
+        <option value=삼도동>삼도동</option>
+        <option value=본량동>본량동</option>".html_safe,
+        class: 'form-control col-xs-12 col-sm-12 col-md-8 col-lg-8', name: 'SUB5', style: 'display: none;', onchange: 'select5_change();'%>
+  
     <br>
     
-    <div class="container col-xs-12 col-sm-12 col-md-6">
-      
-      <input type="text" class="form-control" placeholder="상세주소를 써주세요" id="select">
-      
-    </div>
-   </div> 
-  </form>
-</div>
+      <%= u.text_field :juso, class: 'form-control col-xs-12 col-sm-12 col-md-8 col-lg-8', id: 'select', placeholder: '상세주소를 써주세요' %>  
+  <br><br>
   
-  <br>
-  <br>
-
-<center>
-  <div class="container">
-    <a href="/taxi/t_host/t_room" style ="font-size : 5.2rem">대기</a>
-  </div>
-   <%# <%= f.submit "lists" %>
-  <%#   <% end %>
-  
-</center>  
+  <center>     
+  <%= submit_tag '방 만들기', class: 'thumbnail' %>
+  </center> 
+<% end %>
 
 
 
@@ -217,50 +241,44 @@
 
 
 
-<!--<div class="container">-->
-<!--  <form class="form-inline" action="/room" method="post">-->
-<!--    <div class="dropdown">-->
-<!--      <p>출발</p>-->
-<!--      <li>-->
-<!--      <select class="form-control " name="ad1" >-->
-<!--        <option>정문</option>-->
-<!--        <option>후문</option>-->
-<!--        <option>북문</option>-->
-<!--        <option>상대</option>-->
-<!--      </select>-->
-<!--      </li>-->
-<!--    </div>-->
+
+
+
+<script>
+  function select1_change() {
+    var dong = document.getElementById('list_dong');
+    var select1 = document.getElementById('select1');
     
-<!--    <ul class="dropdown">-->
-<!--      <p>도착</p>-->
-<!--      <li>-->
-        
-<!--        <select class="form-control col-md-3" id ="ctg" name="ad2" onchange="fnCngList(this.vlaue);">-->
-<!--          <option value ="">구</option>-->
-<!--          <option value ="북구">북구</option>-->
-<!--          <option value ="동구">동구</option>-->
-<!--          <option value ="서구">서구</option>-->
-<!--          <option value ="남구">남구</option>-->
-<!--          <option value ="광산구">광산구</option>-->
-<!--        </select>-->
-<!--      </li>-->
-        
-<!--      <li>-->
-        
-<!--        <select class="form-control col-md-3" id="ctg_nm" name ="ad3">-->
-<!--          <option value ="">동</option>-->
-          
-<!--        </select>-->
-<!--      </li>-->
-      
-<!--      <div>-->
-<!--        상세주소-->
-<!--        <input type="text" class="form-control" placeholder="주소를 써주세요">-->
-<!--      </div>-->
-<!--    </div>-->
+    dong.value = select1.value;
+    
+}
+function select2_change() {
+    var dong = document.getElementById('list_dong');
+    var select2 = document.getElementById('select2');
+    
+    dong.value = select2.value;
+    
+}
+function select3_change() {
+    var dong = document.getElementById('list_dong');
+    var select3 = document.getElementById('select3');
+    
+    dong.value = select3.value;
+    
+}
+function select4_change() {
+    var dong = document.getElementById('list_dong');
+    var select4 = document.getElementById('select4');
+    
+    dong.value = select4.value;
+    
+}
+function select5_change() {
+    var dong = document.getElementById('list_dong');
+    var select5 = document.getElementById('select5');
+    
+    dong.value = select5.value;
+    
+}
   
-<!--  </form>-->
-
-<!--</ul>-->
-
-
+</script>

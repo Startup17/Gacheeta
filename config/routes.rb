@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   
   #택시
   get '/taxi/t_host' => 'home#t_host'
-  get '/taxi/t_guest' => 'home#t_guest'
-  get '/taxi/t_host/t_room' => 'home#t_room'
-  get '/taxi/t_guest/t_match/t_list' => 'home#t_list' 
-  get '/t_match' => 'home#t_match' 
-  post '/lists' => 'lists#index'
+  #get '/taxi/t_guest' => 'home#t_guest'
+  #get '/taxi/t_host/t_room' => 'home#t_room'
+  #get '/taxi/t_guest/t_match/t_list' => 'home#t_list' 
+  #get '/t_match' => 'home#t_match' 
+  #post '/lists' => 'lists#index'
 
   #카풀 
   get '/c_driver' => 'home#c_driver'

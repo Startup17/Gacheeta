@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GaCheeTa</title>
+    <title>가치타</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -14,68 +14,121 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height">
+
+
+    
+    
     <script language = "javascript"> 
-  //상위 셀렉트로 하위 셀렉트 제어하기
-  function showSub(obj) {
-  
-  f = document.forms.select_machine;
-  
-  if(obj == 0) {
+  function nanana(val) {
+    f = document.forms.select_machine;
+    if(val == 0) {
   
   f.SUB1.style.display = "none";
   f.SUB2.style.display = "none";
   f.SUB3.style.display = "none";
   f.SUB4.style.display = "none";
   f.SUB5.style.display = "none";
-  f.SUB6.style.display = "none";
   
-  } if(obj == 1) {
+  } if(val == '북구') {
   
   f.SUB1.style.display = "";
   f.SUB2.style.display = "none";
   f.SUB3.style.display = "none";
   f.SUB4.style.display = "none";
   f.SUB5.style.display = "none";
-  f.SUB6.style.display = "none";
-  
-  } if(obj == 2) {
+
+  } if(val == '동구') {
     
   f.SUB1.style.display = "none";
   f.SUB2.style.display = "";
   f.SUB3.style.display = "none";
   f.SUB4.style.display = "none";
   f.SUB5.style.display = "none";
-  f.SUB6.style.display = "none";
-  
-  } if(obj == 3) {
+
+  } if(val == '서구') {
     
   f.SUB1.style.display = "none";
   f.SUB2.style.display = "none";
   f.SUB3.style.display = "";
   f.SUB4.style.display = "none";
   f.SUB5.style.display = "none";
-  f.SUB6.style.display = "none";
-  
-  } if(obj == 4) {
+
+  } if(val == '남구') {
     
   f.SUB1.style.display = "none";
   f.SUB2.style.display = "none";
   f.SUB3.style.display = "none";
   f.SUB4.style.display = "";
   f.SUB5.style.display = "none";
-  f.SUB6.style.display = "none";
-  
-  } if(obj == 5) {
+
+  } if(val == '광산구') {
     
   f.SUB1.style.display = "none";
   f.SUB2.style.display = "none";
   f.SUB3.style.display = "none";
   f.SUB4.style.display = "none";
   f.SUB5.style.display = "";
-  f.SUB6.style.display = "none";
-  
+
+
   } 
   }
+  
+  
+  // //상위 셀렉트로 하위 셀렉트 제어하기
+  // function showSub(obj) {
+  // // f = document.forms.list[gu];
+  // f = document.forms.select_machine;
+  // if(obj == 0) {
+  
+  // f.SUB1.style.display = "none";
+  // f.SUB2.style.display = "none";
+  // f.SUB3.style.display = "none";
+  // f.SUB4.style.display = "none";
+  // f.SUB5.style.display = "none";
+  
+  // } if(obj == '북구') {
+  
+  // f.SUB1.style.display = "";
+  // f.SUB2.style.display = "none";
+  // f.SUB3.style.display = "none";
+  // f.SUB4.style.display = "none";
+  // f.SUB5.style.display = "none";
+
+  // } if(obj == '동구') {
+    
+  // f.SUB1.style.display = "none";
+  // f.SUB2.style.display = "";
+  // f.SUB3.style.display = "none";
+  // f.SUB4.style.display = "none";
+  // f.SUB5.style.display = "none";
+
+  // } if(obj == '서구') {
+    
+  // f.SUB1.style.display = "none";
+  // f.SUB2.style.display = "none";
+  // f.SUB3.style.display = "";
+  // f.SUB4.style.display = "none";
+  // f.SUB5.style.display = "none";
+
+  // } if(obj == '남구') {
+    
+  // f.SUB1.style.display = "none";
+  // f.SUB2.style.display = "none";
+  // f.SUB3.style.display = "none";
+  // f.SUB4.style.display = "";
+  // f.SUB5.style.display = "none";
+
+  // } if(obj == '광산구') {
+    
+  // f.SUB1.style.display = "none";
+  // f.SUB2.style.display = "none";
+  // f.SUB3.style.display = "none";
+  // f.SUB4.style.display = "none";
+  // f.SUB5.style.display = "";
+
+  // } 
+  // }
   </script>
     
     

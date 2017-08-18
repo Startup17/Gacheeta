@@ -14,13 +14,17 @@
  *= require_self
  */
 
+
 #first {
   margin : 35% 0 0 0;
 }
 
 #LOGOUT {
-  margin: 5px 16px 0 0;
+
+  margin : 8px 18px 0 0;
+  
 }
+
 
 #taxi {
   height: 50rem;
@@ -32,32 +36,83 @@
 }
 
 #main-page_navbar {
-  height : 10rem;
-  font-size : 5rem;
+  height : 5rem;
+  font-size : 2rem;
 }
 
-#brand {
-  font-size : 5rem;
-  margin : 25px 0 0 0;
-}
+
 
 #select{
-  height : 8rem;
-  width : 62rem;
-  font-size : 5.4rem;
+  height : 4rem;
+  
+  font-size : 2rem;
 }
 
 #user_email {
   height : 5.5rem;
-  width : 50rem;
+  
 }
 
 #user_password {
   height : 5.5rem;
-  width : 50rem;
+  
 }
 
-#user_remember_me {
-  height : 3rem;
-  width : 3rem;
+#brand {
+  font-size : 2rem;
+  margin : 0 0 0 0;
 }
+/*t-host css 시작*/
+#userinfo {
+  font-size : 2rem;
+  color : gray;
+  display: inline-block;
+  position: absolute;
+}
+
+#h-word {
+  font-size : 2rem;
+  /*text-shadow: 0.5rem 0.5rem skyblue;*/
+  color : black;
+  line-height: 1.4;
+
+}
+
+#list_start {
+  height : 4rem;
+  
+  font-size : 2rem;
+}
+
+#list_gu {
+  height : 4rem;
+  
+  font-size : 2rem;
+}
+
+#select1 {
+  height : 4rem;
+  
+  font-size : 2rem;
+}
+#select2 {
+  height : 4rem;
+  
+  font-size : 2rem;
+}
+#select3 {
+  height : 4rem;
+  
+  font-size : 2rem;
+}
+#select4 {
+  height : 4rem;
+  
+  font-size : 2rem;
+}
+#select5 {
+  height : 4rem;
+  
+  font-size : 2rem;
+}
+/*t-host css 끝*/

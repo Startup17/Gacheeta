@@ -1,17 +1,17 @@
 <section id="first">
   <center>
-  <p style="font-size : 8rem">GaCheeTa</p>
+  <p style="font-size : 5rem">GaCheeTa</p>
  
-  <div style = "font-size : 3.5rem">
+  <div style = "font-size : 2rem">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :아이디 %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email, autofocus: true, class: 'col-xs-12 col-sm-12 col-md-4', placeholder: '이메일을 적어주세요.' %>
       </div>
     
       <div class="field">
         <%= f.label :비밀번호 %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", class: 'col-xs-12 col-sm-12 col-md-4', placeholder: '비밀번호를 적어주세요.' %>
       </div>
     
       <% if devise_mapping.rememberable? -%>

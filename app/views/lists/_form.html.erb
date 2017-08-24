@@ -1,29 +1,30 @@
-<%= form_for(@list) do |u| %>
+<%#= form_for(@lists) do |u| %>
 <%#= form_for List.new, :html => {:class => 'select_machine', :name => 'select_machine' } do |u| %>
-  <% if @list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+  <%# if @list.errors.any? %>
+<!--    <div id="error_explanation">-->
+<!--      <h2><%#= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>-->
 
-      <ul>
-      <% @list.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<!--      <ul>-->
+      <%# @list.errors.full_messages.each do |message| %>
+        <li><%#= message %></li>
+      <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
 
+<%= form_for @list, :html => {:class => 'select_machine', :name => 'select_machine' } do |u| %>
 
-    <%#= u.text_field :dong, value: "일단",type: 'hidden'%>
-    <%#= u.text_field :name, value: current_user.name, type: 'hidden' %>
-    <%#= u.text_field :number, value: current_user.number, type: 'hidden' %>
-    <%#= u.text_field :degree, value: current_user.degree, type: 'hidden' %>
+    <%= u.text_field :dong, value: current_user.name,type: 'hidden'%>
+    <%= u.text_field :name, value: current_user.name, type: 'hidden' %>
+    <%= u.text_field :number, value: current_user.number, type: 'hidden' %>
+    <%= u.text_field :degree, value: current_user.degree, type: 'hidden' %>
     
  
 
       <!--<p id="h-word">출발지 선택</p>-->
       <!--<br>-->
      
-    <%#= u.select 'start', 
+    <%= u.select 'start', 
     "<option value=정문>정문</option>
     <option value=후문>후문</option>
     <option value=북문>북문</option>
@@ -38,7 +39,7 @@
     
 
     
-    <%#= u.select 'gu', 
+    <%= u.select 'gu', 
     "<option value=0>구 설정</option>
     <option value='북구'>북구</option>
     <option value='동구'>동구</option>
@@ -55,7 +56,7 @@
     <!--북구-->
     
   
-        <%#= select_tag "select1",
+        <%= select_tag "select1",
         "<option value=0>동 설정</option>
         <option value=중흥1동>중흥1동</option>
         <option value=중흥2동>중흥2동</option>
@@ -90,7 +91,7 @@
         
     <!--동구-->
     
-        <%#= select_tag "select2", 
+        <%= select_tag "select2", 
         "<option value=0>동 설정</option>
         <option value=충장동>충장동</option>
         <option value=동명동>동명동</option>
@@ -117,7 +118,7 @@
    
    
 
-        <%#= select_tag "select3", 
+        <%= select_tag "select3", 
         "<option value=0>동 설정</option>
         <option value=양동>양동</option>
         <option value=양3동>양3동</option>
@@ -146,7 +147,7 @@
    
   
  
-        <%#= select_tag "select4", 
+        <%= select_tag "select4", 
         "<option value=0>동 설정</option>
         <option value=양림동>양림동</option>
         <option value=방림1동>방림1동</option>
@@ -171,7 +172,7 @@
     
   
         
-        <%#= select_tag "select5", "
+        <%= select_tag "select5", "
         <option value=0>동 설정</option>
         <option value=송정1동>송정1동</option>
         <option value=송정2동>송정2동</option>
@@ -196,38 +197,38 @@
         <option value=본량동>본량동</option>".html_safe,
         class: 'form-control', name: 'SUB5', style: 'display: none;', onchange: 'select5_change();'%>
 
+       <%= u.submit %>
 
 
-
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.text_field :start%>
-  </div>
-  <div class="field">
-    <%= f.label :gu %><br>
-    <%= f.text_field :gu%>
-  </div>
-  <div class="field">
-    <%= f.label :dong %><br>
-    <%= f.text_field :dong %>
-  </div>
-  <div class="field">
-    <%= f.label :juso %><br>
-    <%= f.text_field :juso %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :number %><br>
-    <%= f.number_field :number %>
-  </div>
-  <div class="field">
-    <%= f.label :degree %><br>
-    <%= f.text_field :degree %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <!--<div class="field">-->
+  <!--  <%= f.label :start %><br>-->
+  <!--  <%= f.text_field :start%>-->
+  <!--</div>-->
+  <!--<div class="field">-->
+  <!--  <%= f.label :gu %><br>-->
+  <!--  <%= f.text_field :gu%>-->
+  <!--</div>-->
+  <!--<div class="field">-->
+  <!--  <%= f.label :dong %><br>-->
+  <!--  <%= f.text_field :dong %>-->
+  <!--</div>-->
+  <!--<div class="field">-->
+  <!--  <%= f.label :juso %><br>-->
+  <!--  <%= f.text_field :juso %>-->
+  <!--</div>-->
+  <!--<div class="field">-->
+  <!--  <%= f.label :name %><br>-->
+  <!--  <%= f.text_field :name %>-->
+  <!--</div>-->
+  <!--<div class="field">-->
+  <!--  <%= f.label :number %><br>-->
+  <!--  <%= f.number_field :number %>-->
+  <!--</div>-->
+  <!--<div class="field">-->
+  <!--  <%= f.label :degree %><br>-->
+  <!--  <%= f.text_field :degree %>-->
+  <!--</div>-->
+  <!--<div class="actions">-->
+  <!--  <%= f.submit %>-->
+  <!--</div>-->
 <% end %>

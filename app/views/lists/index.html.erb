@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar", id = "main-nav">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -35,8 +35,8 @@
           <th>출발지</th>
         </div>
         <div>
-          <th>구</th>
-          <th>동</th>
+          <th>도착지</th>
+          
           <!--<th>상세주소</th>-->
         </div>    
         <th>이름</th>
@@ -48,9 +48,9 @@
     <tbody>
       <% @lists.each do |list| %>  
         <tr>
-          <td><%= list.start %></td>
-          <td><%= list.gu %></td>
-          <td><%= list.dong %></td>
+          <td style="color : blue"><%= list.start %></td>
+          <td style="color : red"><%= "#{list.gu}, #{list.dong}" %></td>
+          <!--<td style="color : red"><%#= list.dong %></td>-->
           <!--<td><%#= list.juso %></td>-->
           <td><%= list.name %></td>
           <td><%= list.number %></td>
@@ -70,4 +70,4 @@
 <br>
 
 
-<%= link_to '새로 방만들기', taxi_t_host_path %>
+<%= link_to '새로운 방 만들기', taxi_t_host_path %>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar", id = "main-nav">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -25,8 +25,8 @@
 
 <div class="container">
   
-    <p id="h-word">방 설정</p>
-
+    <p id="h-word", style="font-weight: 900">방 정보 설정</p>
+    <br>
    
   <%= form_for List.new, :html => {:class => 'select_machine col-xs-12 col-sm-12 col-md-8 col-lg-8', :name => 'select_machine' } do |u| %>
     
@@ -39,7 +39,7 @@
  
 
       <p id="h-word">출발지 선택</p>
-      <br>
+     
      
     <%= u.select 'start', 
     "<option value=정문>정문</option>

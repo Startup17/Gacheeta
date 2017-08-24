@@ -35,12 +35,23 @@
   height : 30rem;
 }
 
-#main-page_navbar {
-  height : 5rem;
-  font-size : 2rem;
+#main-nav {
+  background-color: rgba(255, 255, 72, 0.69);
+  color: #9c3b3b;
+  font-weight: 900;
 }
 
+.navbar-toggle.collapsed{
+  border-color: black;
+}
 
+.icon-bar{
+  background-color: black;
+}
+
+.form-control {
+  color: #9c3b3b;
+}
 
 #select{
   height : 4rem;
@@ -72,8 +83,8 @@
 
 #h-word {
   font-size : 2rem;
-  /*text-shadow: 0.5rem 0.5rem skyblue;*/
-  color : black;
+  
+  color : #E91E63;
   line-height: 1.4;
 
 }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar", id = "main-nav">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -86,7 +86,8 @@
 <%= link_to '다른방 보러가기', lists_path %> <br>
 
 <!--방장관련-->
-<%#= link_to '방 설정 변경', list_path, method: :update, data: { confirm: 'ㄹㅇ?' } %> <br>
+<%#= link_to '방 설정 변경', list_path(@list.id), method: :put, data: { confirm: 'ㄹㅇ?' } %> <br>
+<%#= link_to '방 설정 변경', list_path, method: :put, data: { confirm: 'ㄹㅇ?' } %> <br>
 <%= link_to '방장이 나가기', list_path, method: :delete, data: { confirm: '방장이 방을 나가면, 방이 자동으로 사라집니다. 나가시겠습니까?' } %>
 
 <center>
